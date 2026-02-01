@@ -5,7 +5,7 @@ from esphome.components import uart, sensor, binary_sensor
 from esphome.const import CONF_ID, CONF_UART_ID
 
 CODEOWNERS = ["@paulstraw"]
-DEPENDENCIES = ["uart"]
+DEPENDENCIES = ["uart", "sensor", "binary_sensor"]
 
 dehumidifier_rx_ns = cg.esphome_ns.namespace("dehumidifier_rx")
 DehumidifierRxComponent = dehumidifier_rx_ns.class_(
