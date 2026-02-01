@@ -1,0 +1,26 @@
+substitutions:
+  dehumidifier_uart_id: dehumidifier_uart
+  dehumidifier_rx_pin: GPIO1
+  dehumidifier_baud: "9600"
+
+  dehumidifier_humidity_name: "Dehumidifier Humidity"
+  dehumidifier_running_name: "Dehumidifier Running"
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/paulstraw/esphome-dehumidifier-uart
+      ref: main
+    components: [dehumidifier_rx]
+
+uart:
+  - id: ${dehumidifier_uart_id}
+    rx_pin: ${dehumidifier_rx_pin}
+    baud_rate: ${dehumidifier_baud}
+
+dehumidifier_rx:
+  uart_id: ${dehumidifier_uart_id}
+  humidity:
+    name: ${dehumidifier_humidity_name}
+  running:
+    name: ${dehumidifier_running_name}
