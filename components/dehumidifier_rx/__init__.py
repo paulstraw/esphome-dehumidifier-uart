@@ -30,7 +30,8 @@ CONFIG_SCHEMA = cv.Schema(
 async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
-    await uart.register_uart_device(var, config[CONF_UART_ID])
+
+    await uart.register_uart_device(var, config)
 
     if CONF_HUMIDITY in config:
         hum = await sensor.new_sensor(config[CONF_HUMIDITY])
